@@ -9,3 +9,7 @@ Python implementation of Conway's Game of Life, a "cellular automaton" that cons
 1. Each cell with 2 or 3 neighbors survives in the next generation
 1. Each unpopulated cell with exactly 3 neighbors becomes populated in the next generation
 
+## Usage
+`
+./life.py [# of generations] [colony width] [colony height] 
+`
