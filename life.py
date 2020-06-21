@@ -270,6 +270,10 @@ def next_generation(cur_colony, w, h):
 Main function of program
 """
 def main():
+    if len(sys.argv) < 4:
+        print("Usage: $./life.py [# generations] [colony width] [colony height]")
+        sys.exit(0)
+
     colony = []
     
     num_generations = int(sys.argv[1])
@@ -303,6 +307,9 @@ def main():
     while choice < 1 or choice > 3:
         choice = int(input("Please select a number from the menu"))
 
+    # Automatic mode:
+    # Automatically advance the colony to the next generation every 0.42 seconds
+    # until the number of generations reaches the user specified maximum
     if choice == 1:
         while count <= num_generations:
             clear()
@@ -312,6 +319,10 @@ def main():
             time.sleep(0.42)
             count += 1
        
+    # Manual mode:
+    # Allow the user to advance the colony to the next generation with a keyboard input.
+    # This option ignores the maximum number of generation and allows the user to view the 
+    # colony expand indefinitely
     if choice == 2:
         keep_going = True
         gen_count = 0
@@ -329,6 +340,7 @@ def main():
             colony = next_generation(colony, colony_w, colony_h)
             gen_count += 1
 
+    # Quit the program from the menu
     if choice == 3: 
         pass
 
